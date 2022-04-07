@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/new_Project.dart';
 
+import 'package:prototype/new_Project.dart';
 import '../archive.dart';
+import '../navBar.dart';
 import '../project_Manager.dart';
 
 class NewProjectNavBar extends StatefulWidget {
@@ -19,8 +20,11 @@ class _NewProjectNavBarState extends State<NewProjectNavBar> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _bodyWidgetIndex = index;
-      Navigator.pop(context);
+      // _bodyWidgetIndex = index;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => NavBar(index)),
+      );
     });
   }
 

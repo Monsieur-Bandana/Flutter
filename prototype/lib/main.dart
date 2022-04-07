@@ -13,7 +13,7 @@ class RootClass extends StatelessWidget {
         primaryColor: Colors.indigo.shade900,
         backgroundColor: Colors.indigo.shade200,
       ),
-      home: NavBar(),
+      home: NavBar(0),
     );
   }
 }

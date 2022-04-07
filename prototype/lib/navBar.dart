@@ -5,21 +5,21 @@ import 'package:prototype/new_Project.dart';
 import './project_Manager.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({Key? key}) : super(key: key);
+  int startingPoint;
+  NavBar(this.startingPoint);
 
   @override
   State<NavBar> createState() => _NavBarState();
 }
 
 class _NavBarState extends State<NavBar> {
-  int _bodyWidgetIndex = 0;
   final screens = [ProjectManager(), NewProject(), Archive()];
 
   final titles = [ProjectManager().title, NewProject().title, Archive().title];
 
   void _onItemTapped(int index) {
     setState(() {
-      _bodyWidgetIndex = index;
+      widget.startingPoint = index;
     });
   }
 
@@ -27,7 +27,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: screens[_bodyWidgetIndex],
+        body: screens[widget.startingPoint],
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -43,7 +43,7 @@ class _NavBarState extends State<NavBar> {
               label: 'Archiv',
             ),
           ],
-          currentIndex: _bodyWidgetIndex,
+          currentIndex: widget.startingPoint,
           selectedItemColor: Colors.amber[800],
           onTap: _onItemTapped,
         ),
