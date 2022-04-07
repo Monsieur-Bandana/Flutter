@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
@@ -43,8 +44,38 @@ class _CameraPageState extends State<CameraPage> {
         ),
       );
     }
-    return MaterialApp(
-      home: CameraPreview(controller),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Center(
+            child: SizedBox(
+              height: 500,
+              width: 400,
+              child: CameraPreview(controller),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: ElevatedButton(
+            onPressed: () async {
+              pictureFile = await controller.takePicture();
+              setState(() {});
+            },
+            child: const Icon(Icons.camera),
+          ),
+        ),
+        Row(
+          children: [
+            if (pictureFile != null)
+              Image.file(
+                File(pictureFile!.path),
+                width: 50,
+              ),
+          ],
+        )
+      ],
     );
   }
 }
