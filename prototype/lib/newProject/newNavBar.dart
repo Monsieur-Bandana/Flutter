@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'package:prototype/archive.dart';
 import 'package:prototype/new_Project.dart';
-import './project_Manager.dart';
 
-class NavBar extends StatefulWidget {
-  const NavBar({Key? key}) : super(key: key);
+import '../archive.dart';
+import '../project_Manager.dart';
+
+class NewProjectNavBar extends StatefulWidget {
+  const NewProjectNavBar({Key? key}) : super(key: key);
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NewProjectNavBar> createState() => _NewProjectNavBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NewProjectNavBarState extends State<NewProjectNavBar> {
   int _bodyWidgetIndex = 0;
   final screens = [ProjectManager(), NewProject(), Archive()];
 
@@ -20,6 +20,7 @@ class _NavBarState extends State<NavBar> {
   void _onItemTapped(int index) {
     setState(() {
       _bodyWidgetIndex = index;
+      Navigator.pop(context);
     });
   }
 
@@ -27,7 +28,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: screens[_bodyWidgetIndex],
+        body: NewProject(),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

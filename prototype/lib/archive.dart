@@ -15,7 +15,15 @@ class Archive extends StatelessWidget {
       body: Column(
         children: [
           Center(
-            child: Text("Noch keine Archivdaten vorhanden"),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.all(20.0),
+                  child: Text("Keine Projekte im Archiv"),
+                ),
+                const Icon(Icons.arrow_downward),
+              ],
+            ),
           ),
           AddProjectButton()
         ],

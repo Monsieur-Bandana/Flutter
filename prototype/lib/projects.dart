@@ -22,7 +22,25 @@ class Projects extends StatelessWidget {
                     ),
                     Column(children: <Widget>[
                       Text("Name: " + element),
-                      Text("Adresse: " + element + "straße")
+                      Text("Adresse: " + element + "straße"),
+                      Row(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.all(5.0),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Icon(Icons.delete),
+                              style:
+                                  ElevatedButton.styleFrom(primary: Colors.red),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.all(5.0),
+                            child: ElevatedButton(
+                                onPressed: () {}, child: Icon(Icons.archive)),
+                          ),
+                        ],
+                      )
                     ])
                   ],
                 ),

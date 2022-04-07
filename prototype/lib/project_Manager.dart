@@ -33,15 +33,16 @@ class _ProjectManagerState extends State<ProjectManager> {
             Projects(_projects),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    i += 1;
-                    _projects.add('Bauprojekt ' + (i).toString());
-                  });
-                  print(_projects);
-                },
-                child: Text('Neues Projekt anlegen'),
-              ),
+                  onPressed: () {
+                    setState(() {
+                      i += 1;
+                      _projects.add('Bauprojekt ' + (i).toString());
+                    });
+                    print(_projects);
+                  },
+                  child: Text('Neues Projekt anlegen (demoVersion)'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(43, 0, 110, 255))),
             ),
             AddProjectButton()
           ],

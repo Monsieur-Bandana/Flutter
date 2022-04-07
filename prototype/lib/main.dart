@@ -9,14 +9,11 @@ class RootClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          primaryColor: Colors.indigo.shade900,
-          backgroundColor: Colors.indigo.shade200,
-        ),
-        home: SafeArea(
-          child: Scaffold(
-            bottomNavigationBar: NavBar(),
-          ),
-        ));
+      theme: ThemeData(
+        primaryColor: Colors.indigo.shade900,
+        backgroundColor: Colors.indigo.shade200,
+      ),
+      home: NavBar(),
+    );
   }
 }
