@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class newAddress extends StatelessWidget {
+class NewAddress extends StatelessWidget {
   String title = "Archiv";
 
   @override

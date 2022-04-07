@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/new_Project.dart';
 
 import './projects.dart';
 
@@ -34,6 +35,17 @@ class _ProjectManagerState extends State<ProjectManager> {
                 print(_projects);
               },
               child: Text('Neues Projekt anlegen'),
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NewProject()),
+                );
+              },
+              child: const Text('Neues Projekt anlegen 2'),
             ),
           ),
         ],
