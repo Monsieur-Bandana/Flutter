@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import './projects.dart';
 
 class ProjectManager extends StatefulWidget {
+  String title = "Projektübersicht";
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -19,6 +21,7 @@ class _ProjectManagerState extends State<ProjectManager> {
     // TODO: implement build
     return Column(
       children: [
+        projectMessage(i),
         Projects(_projects),
         Center(
           child: ElevatedButton(
@@ -29,10 +32,35 @@ class _ProjectManagerState extends State<ProjectManager> {
               });
               print(_projects);
             },
-            child: Text('Neues Projekt'),
+            child: Text('Neues Projekt anlegen'),
           ),
         ),
       ],
     );
+  }
+}
+
+class projectMessage extends StatelessWidget {
+  int count;
+
+  projectMessage(this.count);
+
+  @override
+  Widget build(BuildContext context) {
+    if (count == 0) {
+      return Center(
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.all(20.0),
+              child: Text("Noch kein Projekt angelegt"),
+            ),
+            const Icon(Icons.arrow_downward),
+          ],
+        ),
+      );
+    }
+    // TODO: implement build
+    return SizedBox.shrink();
   }
 }

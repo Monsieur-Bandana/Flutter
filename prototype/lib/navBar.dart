@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:prototype/archive.dart';
+import 'package:prototype/new_Project.dart';
 import './project_Manager.dart';
 
 class NavBar extends StatefulWidget {
@@ -10,27 +12,14 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
+  int _bodyWidgetIndex = 0;
+  final screens = [ProjectManager(), NewProject(), Archive()];
+
+  final titles = [ProjectManager().title, NewProject().title, Archive().title];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _bodyWidgetIndex = index;
     });
   }
 
@@ -38,9 +27,9 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: Text(titles[_bodyWidgetIndex]),
       ),
-      body: ProjectManager(),
+      body: screens[_bodyWidgetIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -48,15 +37,15 @@ class _NavBarState extends State<NavBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.add_a_photo),
+            label: 'Neues Projekt',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.archive),
+            label: 'Archiv',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: _bodyWidgetIndex,
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
