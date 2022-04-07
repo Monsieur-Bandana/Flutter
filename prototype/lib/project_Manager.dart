@@ -19,23 +19,25 @@ class _ProjectManagerState extends State<ProjectManager> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Column(
-      children: [
-        projectMessage(i),
-        Projects(_projects),
-        Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                i += 1;
-                _projects.add('Bauprojekt ' + (i).toString());
-              });
-              print(_projects);
-            },
-            child: Text('Neues Projekt anlegen'),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          projectMessage(i),
+          Projects(_projects),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  i += 1;
+                  _projects.add('Bauprojekt ' + (i).toString());
+                });
+                print(_projects);
+              },
+              child: Text('Neues Projekt anlegen'),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
