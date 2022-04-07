@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/new_Project.dart';
 
+import 'package:prototype/newProject/newProjectButton.dart';
+import 'package:prototype/new_Project.dart';
 import './projects.dart';
 
 class ProjectManager extends StatefulWidget {
@@ -20,35 +21,31 @@ class _ProjectManagerState extends State<ProjectManager> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          projectMessage(i),
-          Projects(_projects),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  i += 1;
-                  _projects.add('Bauprojekt ' + (i).toString());
-                });
-                print(_projects);
-              },
-              child: Text('Neues Projekt anlegen'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Projektübersicht"),
+        primary: true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            projectMessage(i),
+            Projects(_projects),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    i += 1;
+                    _projects.add('Bauprojekt ' + (i).toString());
+                  });
+                  print(_projects);
+                },
+                child: Text('Neues Projekt anlegen'),
+              ),
             ),
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NewProject()),
-                );
-              },
-              child: const Text('Neues Projekt anlegen 2'),
-            ),
-          ),
-        ],
+            AddProjectButton()
+          ],
+        ),
       ),
     );
   }

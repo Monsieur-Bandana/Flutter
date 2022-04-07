@@ -11,6 +11,10 @@ class NewProject extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Neues Projekt"),
+        primary: true,
+      ),
       body: Column(
         children: <Widget>[
           Container(
