@@ -1,51 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'package:prototype/projects.dart';
+import './project_Manager.dart';
 
 void main() => runApp(RootClass());
 
-class RootClass extends StatefulWidget {
-  State<StatefulWidget> createState() {
-    return _RootClassState();
-  }
-}
-
-class _RootClassState extends State<RootClass> {
-  List<String> projects = [];
-  int i = 0;
-
+class RootClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.indigo.shade900,
+        backgroundColor: Colors.indigo.shade200,
+      ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Startseite'),
-          actions: [
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    i += 1;
-                    projects.add('Bauprojekt ' + (i).toString());
-                  });
-                  print(projects);
-                },
-                child: Text('Neues Projekt'),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  print(projects);
-                },
-                child: Text('Archiv'),
-              ),
-            )
-          ],
-        ),
-        body: Projects(projects),
+        body: ProjectManager(),
       ),
     );
   }
