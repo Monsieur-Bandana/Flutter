@@ -11,11 +11,15 @@ class CameraPage extends StatefulWidget {
 
 class _CameraPageState extends State<CameraPage> {
   late CameraController controller;
+  XFile? pictureFile;
 
   @override
   void initState() {
     super.initState();
-    controller = CameraController(widget.cameras![0], ResolutionPreset.max);
+    controller = CameraController(
+      widget.cameras![0],
+      ResolutionPreset.max,
+    );
     controller.initialize().then((_) {
       if (!mounted) {
         return;
@@ -33,7 +37,11 @@ class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
     if (!controller.value.isInitialized) {
-      return Container();
+      return const SizedBox(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
     }
     return MaterialApp(
       home: CameraPreview(controller),
