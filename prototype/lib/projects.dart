@@ -11,10 +11,19 @@ class Projects extends StatelessWidget {
     return Column(
       children: projects
           .map((element) => Card(
-                child: Column(
+                child: Row(
                   children: <Widget>[
-                    Image.asset('assets/Wall1.jpg'),
-                    Text(element),
+                    Container(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        child: Image.asset('assets/Wall1.jpg'),
+                      ),
+                      width: 150,
+                    ),
+                    Column(children: <Widget>[
+                      Text("Name: " + element),
+                      Text("Adresse: " + element + "straße")
+                    ])
                   ],
                 ),
               ))
