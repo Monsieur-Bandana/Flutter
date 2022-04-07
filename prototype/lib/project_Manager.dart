@@ -20,8 +20,7 @@ class _ProjectManagerState extends State<ProjectManager> {
     return Column(
       children: [
         Projects(_projects),
-        Container(
-          margin: EdgeInsets.all(10.0),
+        Center(
           child: ElevatedButton(
             onPressed: () {
               setState(() {
