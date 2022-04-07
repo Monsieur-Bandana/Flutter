@@ -2,27 +2,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
-List<CameraDescription> cameras = [];
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  List<CameraDescription> cameras = await availableCameras();
-  runApp(CameraApp());
-}
-
-class CameraApp extends StatefulWidget {
+class CameraPage extends StatefulWidget {
+  final List<CameraDescription>? cameras;
+  CameraPage({this.cameras, Key? key}) : super(key: key);
   @override
-  _CameraAppState createState() => _CameraAppState();
+  _CameraPageState createState() => _CameraPageState();
 }
 
-class _CameraAppState extends State<CameraApp> {
+class _CameraPageState extends State<CameraPage> {
   late CameraController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = CameraController(cameras[0], ResolutionPreset.max);
+    controller = CameraController(widget.cameras![0], ResolutionPreset.max);
     controller.initialize().then((_) {
       if (!mounted) {
         return;

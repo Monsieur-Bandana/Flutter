@@ -1,6 +1,7 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import 'NewPhotoScreen.dart';
+import 'newPhotoScreen.dart';
 
 class AddPhotoButton extends StatefulWidget {
   @override
@@ -15,11 +16,12 @@ class _AddPhotoButtonState extends State<AddPhotoButton> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CameraApp()),
-          );
+        onPressed: () async {
+          await availableCameras().then((value) => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CameraPage(cameras: value)),
+              ));
         },
         child: const Text('Photo hinzufügen'),
       ),
