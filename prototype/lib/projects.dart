@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/project_View.dart';
 
 class Projects extends StatelessWidget {
   List<String> projects;
@@ -10,7 +11,16 @@ class Projects extends StatelessWidget {
     // TODO: implement build
     return Column(
       children: projects
-          .map((element) => Card(
+          .map(
+            (element) => Card(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProjectView(element)),
+                  );
+                },
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -44,7 +54,9 @@ class Projects extends StatelessWidget {
                     ])
                   ],
                 ),
-              ))
+              ),
+            ),
+          )
           .toList(),
     );
   }
