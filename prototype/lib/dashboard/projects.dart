@@ -33,6 +33,7 @@ class Projects extends StatelessWidget {
                     Column(children: <Widget>[
                       Text("Name: " + element),
                       Text("Adresse: " + element + "straße"),
+                      Text("Fälligkeitsdatum: 15.05.2022"),
                       Row(
                         children: [
                           Container(

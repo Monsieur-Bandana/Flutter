@@ -22,6 +22,7 @@ class ProjectView extends StatelessWidget {
           margin: const EdgeInsets.all(10.0),
           child: Text("Adresse: " + element + "straße"),
         ),
+        Text("Fälligkeitsdatum: 15.05.2022"),
         ProjectGalery()
       ]),
     );
