@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prototype/newProject/newProjectButton.dart';
-import 'package:prototype/new_Project.dart';
+import 'package:prototype/newProject.dart';
 import './projects.dart';
 
 class ProjectManager extends StatefulWidget {

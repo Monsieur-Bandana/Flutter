@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:prototype/archive.dart';
-import 'package:prototype/new_Project.dart';
-import './project_Manager.dart';
+import 'package:prototype/newProject.dart';
+import 'projectManager.dart';
 
 class NavBar extends StatefulWidget {
   int startingPoint;

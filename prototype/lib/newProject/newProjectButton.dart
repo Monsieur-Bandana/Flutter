@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prototype/newProject/newNavBar.dart';
-import '../new_Project.dart';
+import '../newProject.dart';
 
 class AddProjectButton extends StatefulWidget {
   @override
