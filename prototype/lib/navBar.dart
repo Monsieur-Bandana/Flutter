@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prototype/archive.dart';
-import 'package:prototype/newProject.dart';
+import 'package:prototype/newProject/mainView.dart';
 import 'projectManager.dart';
 
 class NavBar extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/projectView.dart';
+import 'package:prototype/projectView/mainView.dart';
 
 class Projects extends StatelessWidget {
   List<String> projects;

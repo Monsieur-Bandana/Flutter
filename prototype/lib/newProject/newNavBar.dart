@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:prototype/newProject.dart';
+import 'package:prototype/newProject/mainView.dart';
 import '../archive.dart';
 import '../navBar.dart';
 import '../projectManager.dart';
