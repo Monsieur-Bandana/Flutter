@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/projectManager.dart';
+import 'package:prototype/dashboard/projectManager.dart';
 
-import './navBar.dart';
+import 'dashboard/navBar.dart';
 
 void main() => runApp(RootClass());
 

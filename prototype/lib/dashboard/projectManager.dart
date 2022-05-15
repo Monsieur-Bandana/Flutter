@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:prototype/newProject/newProjectButton.dart';
 import 'package:prototype/newProject/mainView.dart';
-import './projects.dart';
+import 'projects.dart';
 
 class ProjectManager extends StatefulWidget {
   String title = "Projektübersicht";

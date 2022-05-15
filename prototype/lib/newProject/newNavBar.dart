@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:prototype/newProject/mainView.dart';
 import '../archive.dart';
-import '../navBar.dart';
-import '../projectManager.dart';
+import '../dashboard/navBar.dart';
+import '../dashboard/projectManager.dart';
 
 class NewProjectNavBar extends StatefulWidget {
   const NewProjectNavBar({Key? key}) : super(key: key);

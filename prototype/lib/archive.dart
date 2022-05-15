@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prototype/newProject/newProjectButton.dart';
-import 'package:prototype/projects.dart';
+import 'package:prototype/dashboard/projects.dart';
 
 class Archive extends StatelessWidget {
   String title = "Archiv";
