@@ -6,6 +6,20 @@ class Projects extends StatelessWidget {
 
   Projects(this.projects);
 
+  List<Widget> sampleImages() {
+    List<Widget> containerList = [];
+    for (var i = 1; i < 3; i++) {
+      var src = 'assets/livingRoom' + i.toString() + '.jpg';
+      print(src);
+      containerList.add(Container(
+        margin: const EdgeInsets.all(3.0),
+        child: Image.asset(src.toString()),
+        width: 65,
+      ));
+    }
+    return containerList;
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -24,9 +38,8 @@ class Projects extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      child: Container(
-                        margin: const EdgeInsets.all(10.0),
-                        child: Image.asset('assets/Wall1.jpg'),
+                      child: Row(
+                        children: sampleImages(),
                       ),
                       width: 150,
                     ),

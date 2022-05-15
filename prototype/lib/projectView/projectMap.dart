@@ -3,7 +3,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 class ProjectMap extends StatelessWidget {
-  LatLng point = LatLng(50.84623, 6.08596);
+  LatLng point = LatLng(50.84663439904274, 6.085464547889987);
+  //50.84663439904274, 6.085464547889987
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
