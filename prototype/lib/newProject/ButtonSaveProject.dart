@@ -14,9 +14,11 @@ class _SaveButtonState extends State<SaveButton> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: saveFile,
         child: const Text('Projekt speichern'),
       ),
     );
   }
+
+  saveFile() {}
 }
