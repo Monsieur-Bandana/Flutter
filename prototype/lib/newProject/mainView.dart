@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 
-import 'package:prototype/newProject/ButtonSaveProject.dart';
 import 'package:prototype/newProject/newAddress.dart';
 import 'package:prototype/newProject/newPhotoButton.dart';
+import 'package:prototype/newProject/saveTest.dart';
 
-class NewProject extends StatelessWidget {
+class NewProject extends StatefulWidget {
   String title = "Neues Projekt";
+  @override
+  State<StatefulWidget> createState() {
+    return _NewProjectState();
+  }
+}
+
+class _NewProjectState extends State<NewProject> {
+//  String projectName;
+  // String projectAddress;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +24,17 @@ class NewProject extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Neues Projekt"),
+          title: const Text("Neues Projekt"),
           primary: true,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.all(15.0),
-              child: const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Projektname',
-                ),
-              ),
-            ),
-            NewAddress(),
-            AddPhotoButton(),
-            SaveButton(),
-          ],
+        body: Form(
+          child: Column(
+            children: <Widget>[
+              NewAddress(),
+              AddPhotoButton(),
+              SaveTest(),
+            ],
+          ),
         ),
       ),
     );

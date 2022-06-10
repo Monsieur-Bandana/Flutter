@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/localDrive/file_utils.dart';
 
 import 'package:prototype/projectView/projectGalery.dart';
 import 'package:prototype/projectView/projectMap.dart';
 
-class ProjectView extends StatelessWidget {
+class ProjectView extends StatefulWidget {
   String element;
-
   ProjectView(this.element);
+  _ProjectViewState createState() {
+    // TODO: implement createState
+    return _ProjectViewState(element);
+  }
+}
+
+class _ProjectViewState extends State<ProjectView> {
+  String element;
+  _ProjectViewState(this.element);
+  String name = "";
+
+  String getNameValue() {
+    FileUtils.readFromFile().then((contents) {
+      setState(() {
+        name = contents;
+      });
+    });
+    return name;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +36,14 @@ class ProjectView extends StatelessWidget {
         primary: true,
       ),
       body: Column(children: [
+        Text("name: " + getNameValue()),
         Center(child: ProjectMap()),
         Container(
           margin: const EdgeInsets.all(10.0),
           child: Text("Adresse: " + element + "straße"),
         ),
         Text("Fälligkeitsdatum: 15.05.2022"),
-        ProjectGalery()
+        //  ProjectGalery()
       ]),
     );
   }
