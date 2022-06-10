@@ -29,13 +29,13 @@ class _ProjectViewState extends State<ProjectView> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text(element),
         primary: true,
       ),
       body: Column(children: [
+        // test to check if Project view is able to load data, which had been entered before
         Text("name: " + getNameValue()),
         Center(child: ProjectMap()),
         Container(
@@ -43,7 +43,7 @@ class _ProjectViewState extends State<ProjectView> {
           child: Text("Adresse: " + element + "straße"),
         ),
         Text("Fälligkeitsdatum: 15.05.2022"),
-        //  ProjectGalery()
+        //  ProjectGalery() -- musste auskommentiert werden wegen endlosschleife, eh nur demozwecke
       ]),
     );
   }

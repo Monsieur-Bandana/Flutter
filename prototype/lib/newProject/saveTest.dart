@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 import '../localDrive/file_utils.dart';
+import 'newAddress.dart';
+import 'newPhotoButton.dart';
 
 class SaveTest extends StatefulWidget {
   @override
@@ -22,17 +23,19 @@ class _SaveTestState extends State<SaveTest> {
           margin: const EdgeInsets.all(15.0),
           child: TextField(
             controller: _nameController,
-            //      onChanged: projectName=_nameController.text,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Projektname',
             ),
           ),
         ),
+        NewAddress(),
+        AddPhotoButton(),
         Align(
           alignment: Alignment.bottomCenter,
           child: ElevatedButton(
             onPressed: () {
+              // test: saves text from project-name-field as .txt file in the download folder
               FileUtils.saveToFile(_nameController.text);
             },
             child: const Text('Projekt speichern'),
