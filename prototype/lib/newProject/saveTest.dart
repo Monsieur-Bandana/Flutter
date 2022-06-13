@@ -1,46 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/localDrive/content.dart';
+import 'package:prototype/newProject/textfieldProjectName.dart';
 import '../localDrive/file_utils.dart';
 import 'newAddress.dart';
 import 'newPhotoButton.dart';
 
 class SaveTest extends StatefulWidget {
+  static var cash = Content();
+
   @override
   _SaveTestState createState() {
-    // TODO: implement createState
     return _SaveTestState();
   }
 }
 
 class _SaveTestState extends State<SaveTest> {
-  String projectName = "Defaultname";
-  final TextEditingController _nameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          margin: const EdgeInsets.all(15.0),
-          child: TextField(
-            controller: _nameController,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Projektname',
-            ),
-          ),
-        ),
+        TextFieldProjectName(),
         NewAddress(),
         AddPhotoButton(),
         Align(
           alignment: Alignment.bottomCenter,
           child: ElevatedButton(
             onPressed: () {
-              // test: saves text from project-name-field as .txt file in the download folder
-              _nameController.text != ''
-                  ? projectName = _nameController.text
-                  : projectName;
-
-              FileUtils.saveToFile("name: " + projectName);
+              FileUtils.saveToFile(SaveTest.cash.newProjectName);
             },
             child: const Text('Projekt speichern'),
           ),
