@@ -36,7 +36,11 @@ class _SaveTestState extends State<SaveTest> {
           child: ElevatedButton(
             onPressed: () {
               // test: saves text from project-name-field as .txt file in the download folder
-              FileUtils.saveToFile(_nameController.text);
+              _nameController.text != ''
+                  ? projectName = _nameController.text
+                  : projectName;
+
+              FileUtils.saveToFile("name: " + projectName);
             },
             child: const Text('Projekt speichern'),
           ),
