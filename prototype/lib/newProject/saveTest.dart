@@ -5,7 +5,10 @@ import '../localDrive/file_utils.dart';
 import 'newAddress.dart';
 import 'newPhotoButton.dart';
 
+/// SaveTest habe ich ursprünglich als Testklasse verwendet um den Speicherprozess auszuprobieren
+/// zukünftig wird es wohl die momentane mainView Klasse ersetzen
 class SaveTest extends StatefulWidget {
+  // instanzieeren eines Contentobjekts, in dem sämtliche EIngabeinformationen zwischengespeichert werden
   static var cash = Content();
 
   @override
@@ -26,7 +29,7 @@ class _SaveTestState extends State<SaveTest> {
           alignment: Alignment.bottomCenter,
           child: ElevatedButton(
             onPressed: () {
-              FileUtils.saveToFile(SaveTest.cash.newProjectName);
+              FileUtils.writeJsonFile(SaveTest.cash);
             },
             child: const Text('Projekt speichern'),
           ),

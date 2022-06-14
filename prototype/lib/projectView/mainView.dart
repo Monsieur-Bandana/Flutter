@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype/localDrive/file_utils.dart';
-
+import 'package:prototype/localDrive/content.dart';
 import 'package:prototype/projectView/projectGalery.dart';
 import 'package:prototype/projectView/projectMap.dart';
 
@@ -19,9 +19,9 @@ class _ProjectViewState extends State<ProjectView> {
   String name = "";
 
   String getNameValue() {
-    FileUtils.readFromFile().then((contents) {
+    FileUtils.readJsonFile().then((contents) {
       setState(() {
-        name = contents;
+        name = contents['projectName'];
       });
     });
     return name;
