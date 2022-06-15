@@ -19,17 +19,24 @@ class _ProjectViewState extends State<ProjectView> {
 
   String name = "";
 
-  String getJsonValue(key) {
+  Map<String, dynamic> content = {
+    'projectName': "",
+    'status': "",
+    'client': ""
+  };
+
+  Map<String, dynamic> getJsonValue() {
     FileUtils.readJsonFile().then((contents) {
       setState(() {
-        name = contents[key];
+        content = contents;
       });
     });
-    return name;
+    return content;
   }
 
   @override
   Widget build(BuildContext context) {
+    getJsonValue();
     return Scaffold(
       appBar: AppBar(
         title: Text(element),
@@ -37,9 +44,9 @@ class _ProjectViewState extends State<ProjectView> {
       ),
       body: Column(children: [
         // test to check if Project view is able to load data, which had been entered before
-        Text("name: " + getJsonValue("projectName")),
+        Text("name: " + content["projectName"]),
         Center(child: ProjectMap()),
-        //   Text("client: " + getJsonValue("client")),
+        Text("client: " + content["client"]),
         Container(
           margin: const EdgeInsets.all(10.0),
           child: Text("Adresse: " + element + "straße"),
