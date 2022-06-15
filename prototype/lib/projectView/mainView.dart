@@ -17,15 +17,15 @@ class _ProjectViewState extends State<ProjectView> {
   String element;
   _ProjectViewState(this.element);
 
-  late Content content;
+  String name = "";
 
-  String getJsonValue(String key) {
+  String getJsonValue(key) {
     FileUtils.readJsonFile().then((contents) {
       setState(() {
-        content.projectName = contents[key];
+        name = contents[key];
       });
     });
-    return content.projectName;
+    return name;
   }
 
   @override
