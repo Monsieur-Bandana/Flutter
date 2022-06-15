@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:prototype/localDrive/file_utils.dart';
 
-import 'package:prototype/newProject/SaveProject.dart';
-import 'package:prototype/newProject/newAddress.dart';
-import 'package:prototype/newProject/newPhotoButton.dart';
+import 'package:prototype/newProject/saveTest.dart';
 
-class NewProject extends StatelessWidget {
+import '../localDrive/content.dart';
+import 'input_field.dart';
+import 'newAddress.dart';
+import 'newPhotoButton.dart';
+
+class NewProject extends StatefulWidget {
   String title = "Neues Projekt";
+  // instanzieeren eines Contentobjekts, in dem sämtliche EIngabeinformationen zwischengespeichert werden
+  static var cash = Content();
+  @override
+  State<StatefulWidget> createState() {
+    return _NewProjectState();
+  }
+}
+
+class _NewProjectState extends State<NewProject> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +27,29 @@ class NewProject extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Neues Projekt"),
+          title: const Text("Neues Projekt"),
           primary: true,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.all(15.0),
-              child: const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Projektname',
+        body: SingleChildScrollView(
+          child: Form(
+            child: Column(
+              children: <Widget>[
+                InputField(InputType.projectName),
+                InputField(InputType.client),
+                NewAddress(),
+                AddPhotoButton(),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      FileUtils.writeJsonFile(SaveTest.cash);
+                    },
+                    child: const Text('Projekt speichern'),
+                  ),
                 ),
-              ),
+              ],
             ),
-            NewAddress(),
-            AddPhotoButton(),
-            SaveButton(),
-          ],
+          ),
         ),
       ),
     );
