@@ -24,6 +24,16 @@ class Content {
         'status': status.toString(),
         'client': client
       };
+
+  static Map<String, dynamic> createMap() {
+    Map<String, dynamic> content = {
+      'projectName': "",
+      'status': "",
+      'client': ""
+    };
+
+    return content;
+  }
 }
 
 
