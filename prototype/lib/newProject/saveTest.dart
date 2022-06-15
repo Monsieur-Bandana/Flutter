@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype/localDrive/content.dart';
-import 'package:prototype/newProject/textfieldProjectName.dart';
+import 'package:prototype/newProject/input_field.dart';
 import '../localDrive/file_utils.dart';
 import 'newAddress.dart';
 import 'newPhotoButton.dart';
@@ -22,7 +22,8 @@ class _SaveTestState extends State<SaveTest> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TextFieldProjectName(),
+        InputField(InputType.projectName),
+        InputField(InputType.client),
         NewAddress(),
         AddPhotoButton(),
         Align(

@@ -16,15 +16,16 @@ class ProjectView extends StatefulWidget {
 class _ProjectViewState extends State<ProjectView> {
   String element;
   _ProjectViewState(this.element);
-  String name = "";
 
-  String getNameValue() {
+  late Content content;
+
+  String getJsonValue(String key) {
     FileUtils.readJsonFile().then((contents) {
       setState(() {
-        name = contents['projectName'];
+        content.projectName = contents[key];
       });
     });
-    return name;
+    return content.projectName;
   }
 
   @override
@@ -36,8 +37,9 @@ class _ProjectViewState extends State<ProjectView> {
       ),
       body: Column(children: [
         // test to check if Project view is able to load data, which had been entered before
-        Text("name: " + getNameValue()),
+        Text("name: " + getJsonValue("projectName")),
         Center(child: ProjectMap()),
+        //   Text("client: " + getJsonValue("client")),
         Container(
           margin: const EdgeInsets.all(10.0),
           child: Text("Adresse: " + element + "straße"),
